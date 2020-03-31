@@ -3,6 +3,7 @@ timebox
 
 Timebox your Tasks and Activities with ease
 
+[![Build Status](https://travis-ci.com/kutzilla/timebox.svg?branch=master)](https://travis-ci.com/kutzilla/timebox)
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/timebox.svg)](https://npmjs.org/package/timebox)
 [![Downloads/week](https://img.shields.io/npm/dw/timebox.svg)](https://npmjs.org/package/timebox)
