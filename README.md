@@ -31,6 +31,7 @@ USAGE
 <!-- commands -->
 * [`tb hello [FILE]`](#tb-hello-file)
 * [`tb help [COMMAND]`](#tb-help-command)
+* [`tb start`](#tb-start)
 
 ## `tb hello [FILE]`
 
@@ -68,4 +69,15 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
+
+## `tb start`
+
+starts a new Timebox
+
+```
+USAGE
+  $ tb start
+```
+
+_See code: [src/commands/start.ts](https://github.com/kutzilla/timebox/blob/v0.0.0/src/commands/start.ts)_
 <!-- commandsstop -->
