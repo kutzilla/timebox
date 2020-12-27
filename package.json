@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "author": "Matthias Kutz",
   "bin": {
-    "tb": "./bin/run"
+    "box": "./bin/run"
   },
   "bugs": "https://github.com/kutzilla/timebox/issues",
   "dependencies": {
@@ -46,7 +46,7 @@
   "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "tb",
+    "bin": "box",
     "plugins": [
       "@oclif/plugin-help"
     ]
