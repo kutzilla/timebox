@@ -17,29 +17,29 @@ Timebox your Tasks and Activities with ease
 <!-- usage -->
 ```sh-session
 $ npm install -g timebox
-$ tb COMMAND
+$ box COMMAND
 running command...
-$ tb (-v|--version|version)
+$ box (-v|--version|version)
 timebox/0.0.0 darwin-x64 node-v10.15.0
-$ tb --help [COMMAND]
+$ box --help [COMMAND]
 USAGE
-  $ tb COMMAND
+  $ box COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`tb hello [FILE]`](#tb-hello-file)
-* [`tb help [COMMAND]`](#tb-help-command)
-* [`tb start`](#tb-start)
+* [`box hello [FILE]`](#box-hello-file)
+* [`box help [COMMAND]`](#box-help-command)
+* [`box start`](#box-start)
 
-## `tb hello [FILE]`
+## `box hello [FILE]`
 
 describe the command here
 
 ```
 USAGE
-  $ tb hello [FILE]
+  $ box hello [FILE]
 
 OPTIONS
   -f, --force
@@ -53,13 +53,13 @@ EXAMPLE
 
 _See code: [src/commands/hello.ts](https://github.com/kutzilla/timebox/blob/v0.0.0/src/commands/hello.ts)_
 
-## `tb help [COMMAND]`
+## `box help [COMMAND]`
 
-display help for tb
+display help for box
 
 ```
 USAGE
-  $ tb help [COMMAND]
+  $ box help [COMMAND]
 
 ARGUMENTS
   COMMAND  command to show help for
@@ -70,13 +70,13 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
 
-## `tb start`
+## `box start`
 
 starts a new Timebox
 
 ```
 USAGE
-  $ tb start
+  $ box start
 ```
 
 _See code: [src/commands/start.ts](https://github.com/kutzilla/timebox/blob/v0.0.0/src/commands/start.ts)_
