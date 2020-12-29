@@ -90,13 +90,13 @@ export default class Timebox {
       fs.writeJson(path.join(dir, `${timebox.id}.json`), JSON.stringify(timebox))
     }
 
-    public static findAll(dir: string) : Array<Timebox> {
-       const files = fs.readdirSync(dir)
+    public static findAll(dir: string): Array<Timebox> {
+      const files = fs.readdirSync(dir)
 
-       let timeboxes : Array<Timebox> = []
-       for (var i = 0; i < files.length; i++) {
-         timeboxes[i] = fs.readJSONSync(`${dir}/${files[i]}`) as Timebox
-       }
-       return timeboxes
+      const timeboxes: Array<Timebox> = []
+      for (let i = 0; i < files.length; i++) {
+        timeboxes[i] = fs.readJSONSync(`${dir}/${files[i]}`) as Timebox
+      }
+      return timeboxes
     }
 }

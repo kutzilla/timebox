@@ -5,6 +5,7 @@ export default class List extends Command {
   static description = 'List all Timeboxes'
 
   async run() {
-    console.log(Timebox.findAll(`${this.config.dataDir}/boxes/`))
+    let timeboxes = Timebox.findAll(`${this.config.dataDir}/boxes/`)
+    this.log(timeboxes.toString())
   }
 }
