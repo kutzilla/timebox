@@ -4,14 +4,14 @@ describe('start', () => {
   test
   .stdout()
   .command(['start'])
-  .it('runs hello', ctx => {
-    expect(ctx.stdout).to.contain('hello world')
+  .it('starts timebox without name', ctx => {
+    expect(ctx.stdout).to.contain('Timebox').to.contain('started')
   })
 
   test
   .stdout()
-  .command(['start', '--name', 'jeff'])
-  .it('runs hello --name jeff', ctx => {
-    expect(ctx.stdout).to.contain('hello jeff')
+  .command(['start', 'test'])
+  .it('starts timebox with name', ctx => {
+    expect(ctx.stdout).to.contain('Timebox test').to.contain('started')
   })
 })
