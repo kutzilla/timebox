@@ -20,7 +20,7 @@ $ npm install -g timebox
 $ box COMMAND
 running command...
 $ box (-v|--version|version)
-timebox/0.0.0 darwin-x64 node-v10.15.0
+timebox/0.0.0 darwin-x64 node-v14.15.3
 $ box --help [COMMAND]
 USAGE
   $ box COMMAND
@@ -29,29 +29,8 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`box hello [FILE]`](#box-hello-file)
 * [`box help [COMMAND]`](#box-help-command)
-* [`box start`](#box-start)
-
-## `box hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ box hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ tb hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/kutzilla/timebox/blob/v0.0.0/src/commands/hello.ts)_
+* [`box start [NAME] [CONTEXT]`](#box-start-name-context)
 
 ## `box help [COMMAND]`
 
@@ -68,15 +47,19 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.1/src/commands/help.ts)_
 
-## `box start`
+## `box start [NAME] [CONTEXT]`
 
 starts a new Timebox
 
 ```
 USAGE
-  $ box start
+  $ box start [NAME] [CONTEXT]
+
+ARGUMENTS
+  NAME     name of the timebox
+  CONTEXT  [default: default] context of the timebox
 ```
 
 _See code: [src/commands/start.ts](https://github.com/kutzilla/timebox/blob/v0.0.0/src/commands/start.ts)_
