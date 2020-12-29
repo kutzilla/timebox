@@ -24,12 +24,12 @@ export default class Start extends Command {
   async run() {
     const {args} = this.parse(Start)
 
-    const startTime = new Date(Date.now())
-    const id = Start.md5.appendStr(startTime.toString()).end() as string
+    const id = Start.md5.appendStr(Date.now().toString()).end() as string
     const name = (args.name === undefined) ?  id.slice(0, 7) : args.name
     const context = args.context
 
-    const timebox = new Timebox(id, name, context, startTime)
+    const timebox = new Timebox(id, name, context)
+    timebox.start()
 
     try {
       Timebox.write(timebox, `${this.config.dataDir}/boxes/`)
