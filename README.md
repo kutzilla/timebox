@@ -31,6 +31,7 @@ USAGE
 <!-- commands -->
 * [`box hello [FILE]`](#box-hello-file)
 * [`box help [COMMAND]`](#box-help-command)
+* [`box start`](#box-start)
 
 ## `box hello [FILE]`
 
@@ -68,4 +69,15 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
+
+## `box start`
+
+starts a new Timebox
+
+```
+USAGE
+  $ box start
+```
+
+_See code: [src/commands/start.ts](https://github.com/kutzilla/timebox/blob/v0.0.0/src/commands/start.ts)_
 <!-- commandsstop -->
