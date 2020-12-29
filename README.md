@@ -30,6 +30,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`box help [COMMAND]`](#box-help-command)
+* [`box list [FILE]`](#box-list-file)
 * [`box start [NAME] [CONTEXT]`](#box-start-name-context)
 
 ## `box help [COMMAND]`
@@ -48,6 +49,22 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.1/src/commands/help.ts)_
+
+## `box list [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ box list [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/list.ts](https://github.com/kutzilla/timebox/blob/v0.0.0/src/commands/list.ts)_
 
 ## `box start [NAME] [CONTEXT]`
 
