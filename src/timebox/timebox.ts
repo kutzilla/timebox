@@ -62,7 +62,7 @@ export default class Timebox {
 
     public static write(timebox: Timebox, dir: string) {
       if (!fs.pathExistsSync(dir)) {
-        fs.mkdirSync(dir)
+        fs.mkdirpSync(dir)
       }
       fs.writeJson(path.join(dir, `${timebox.id}.json`), JSON.stringify(timebox))
     }
