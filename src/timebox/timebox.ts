@@ -1,5 +1,6 @@
 import * as fs from 'fs-extra'
 import * as path from 'path'
+import {Status} from './status'
 
 export default class Timebox {
     private _id: string
@@ -8,16 +9,17 @@ export default class Timebox {
 
     private _context: string
 
-    private _startTime: Date
+    private _startTime?: Date
 
-    private _endTime: Date
+    private _endTime?: Date
 
-    constructor(id: string, name: string, context: string, startTime: Date) {
+    private _status: Status
+
+    constructor(id: string, name: string, context: string) {
       this._id = id
       this._name = name
       this._context = context
-      this._startTime = startTime
-      this._endTime = new Date(0)
+      this._status = Status.PENDING
     }
 
     public get id(): string {
@@ -44,20 +46,41 @@ export default class Timebox {
       this._context = context
     }
 
-    public set startTime(startTime: Date) {
+    public set startTime(startTime: Date|undefined) {
       this._startTime = startTime
     }
 
-    public get startTime(): Date {
+    public get startTime(): Date|undefined {
       return this._startTime
     }
 
-    public get endTime(): Date {
+    public startTimeStamp(): string {
+      if (this._startTime !== undefined) {
+        return this._startTime!.toLocaleTimeString()
+      }
+      throw new Error('start time is undefined')
+    }
+
+    public get endTime(): Date | undefined {
       return this._endTime
     }
 
-    public set endTime(endTime: Date) {
+    public set endTime(endTime: Date | undefined) {
       this._endTime = endTime
+    }
+
+    public get status(): Status {
+      return this._status
+    }
+
+    public start(startTime?: Date): Status {
+      if (this._status === Status.PENDING) {
+        this._status = Status.RUNNING
+        this._startTime = startTime || new Date(Date.now())
+      } else {
+        throw new Error(`Timebox ${this._name} is not pending anymore`)
+      }
+      return this._status
     }
 
     public static write(timebox: Timebox, dir: string) {
