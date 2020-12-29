@@ -34,7 +34,7 @@ export default class Start extends Command {
     try {
       Timebox.write(timebox, `${this.config.dataDir}/boxes/`)
 
-      let message = `Timebox ${timebox.name} started at ${timebox.startTime.toLocaleTimeString()}`
+      let message = `Timebox ${timebox.name} started at ${timebox.startTimeStamp()}`
       if (timebox.context !== null) {
         message = `${message} with context '${timebox.context}'`
       }

@@ -9,9 +9,9 @@ export default class Timebox {
 
     private _context: string
 
-    private _startTime: Date
+    private _startTime?: Date
 
-    private _endTime: Date
+    private _endTime?: Date
 
     private _status: Status
 
@@ -19,8 +19,6 @@ export default class Timebox {
       this._id = id
       this._name = name
       this._context = context
-      this._startTime = new Date(0)
-      this._endTime = new Date(0)
       this._status = Status.PENDING
     }
 
@@ -48,19 +46,26 @@ export default class Timebox {
       this._context = context
     }
 
-    public set startTime(startTime: Date) {
+    public set startTime(startTime: Date|undefined) {
       this._startTime = startTime
     }
 
-    public get startTime(): Date {
+    public get startTime(): Date|undefined {
       return this._startTime
     }
 
-    public get endTime(): Date {
+    public startTimeStamp(): string {
+      if (this._startTime !== undefined) {
+        return this._startTime!.toLocaleTimeString()
+      }
+      throw new Error('start time is undefined')
+    }
+
+    public get endTime(): Date | undefined {
       return this._endTime
     }
 
-    public set endTime(endTime: Date) {
+    public set endTime(endTime: Date | undefined) {
       this._endTime = endTime
     }
 
