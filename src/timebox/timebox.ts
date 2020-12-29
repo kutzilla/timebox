@@ -1,4 +1,6 @@
 import {Md5} from 'ts-md5/dist/md5';
+import * as fs from 'fs-extra'
+import * as path from 'path'
 
 
 export default class Timebox {
@@ -33,5 +35,13 @@ export default class Timebox {
     
     public get startTimeStamp(): string {
         return `${this._startTime.getHours()}:${this._startTime.getMinutes()}:${this._startTime.getSeconds()}`
+    }
+
+    public static write(timebox: Timebox, dir: string) {
+        if(!fs.pathExists(dir)) {
+            fs.mkdir(dir)
+          }
+        fs.createFile(path.join(dir, `${timebox.id}.json`))
+        fs.writeFile(path.join(dir, `${timebox.id}.json`), JSON.stringify(timebox))
     }
 }
