@@ -10,8 +10,16 @@ describe('start', () => {
 
   test
   .stdout()
-  .command(['start', 'test'])
+  .command(['start', 'test-name'])
   .it('starts timebox with name', ctx => {
-    expect(ctx.stdout).to.contain('Timebox test').to.contain('started')
+    expect(ctx.stdout).to.contain('Timebox').to.contain('test-name').to.contain('started')
+  })
+
+  test
+  .stdout()
+  .command(['start', 'test-name', 'test-context'])
+  .it('starts timebox with name and context', ctx => {
+    expect(ctx.stdout).to.contain('Timebox').to.contain('test-name').to.contain('started')
+    .to.contain('with context').to.contain('test-context')
   })
 })

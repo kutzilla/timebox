@@ -25,19 +25,20 @@ export default class Start extends Command {
     const {args} = this.parse(Start)
 
     const startTime = new Date(Date.now())
-
-    const id = Start.md5
-    .appendStr(startTime.toString())
-    .end() as string
-
-    const name = (args.name === null) ?  id.slice(0, 7) : args.name
+    const id = Start.md5.appendStr(startTime.toString()).end() as string
+    const name = (args.name === undefined) ?  id.slice(0, 7) : args.name
     const context = args.context
 
     const timebox = new Timebox(id, name, context, startTime)
 
     try {
       Timebox.write(timebox, `${this.config.dataDir}/boxes/`)
-      const message = `Timebox ${timebox.name} started at ${timebox.startTime.toLocaleTimeString()}`
+
+      let message = `Timebox ${timebox.name} started at ${timebox.startTime.toLocaleTimeString()}`
+      if (timebox.context !== null) {
+        message = `${message} with context '${timebox.context}'`
+      }
+
       this.log(message)
     } catch (error) {
       this.error(`Timebox not created - ${error.message}`)
