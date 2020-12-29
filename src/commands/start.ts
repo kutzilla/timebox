@@ -1,4 +1,4 @@
-import {Command, flags} from '@oclif/command'
+import {Command} from '@oclif/command'
 import Timebox from '../timebox/timebox'
 import {Md5} from 'ts-md5/dist/md5'
 
@@ -30,7 +30,7 @@ export default class Start extends Command {
     .appendStr(startTime.toString())
     .end() as string
 
-    const name = (args.name !== null) ? args.name : id.slice(0, 7)
+    const name = (args.name === null) ?  id.slice(0, 7) : args.name
     const context = args.context
 
     const timebox = new Timebox(id, name, context, startTime)
