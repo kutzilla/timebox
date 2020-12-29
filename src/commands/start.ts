@@ -1,20 +1,26 @@
 import {Command, flags} from '@oclif/command'
 import * as fs from 'fs-extra'
 import * as path from 'path'
-import Config from '../configuration/config'
+import Timebox from '../timebox/timebox'
 
 export default class Start extends Command {
 
   static description = 'starts a new Timebox'
 
   async run() {
-    const startTime = new Date(Date.now())
 
-    this.log(`You've started a new Timebox at ${startTime.getHours()}:${startTime.getMinutes()}!`)
+    var timebox = new Timebox(new Date(Date.now()))
 
-    var conf = new Config(this.config.configDir, this.config.home)
+    try {
+      if(!fs.pathExists(this.config.dataDir)) {
+        fs.mkdir(this.config.dataDir)
+      }
+      fs.createFile(path.join(this.config.dataDir, `${timebox.id}.json`))
+      fs.writeFile(path.join(this.config.dataDir, `${timebox.id}.json`), JSON.stringify(timebox))
 
-    this.log('User config: ' + conf.load())
-    
+      this.log(`Timebox ${timebox.shortid} started at ${timebox.startTimeStamp}`)
+    } catch(e) {
+        this.error(`Timebox not created - ${e.message}`)
+    }
   }
 }
